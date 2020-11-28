@@ -40,7 +40,7 @@ public class MyCommonAppTest {
         myCSVUtils.writeCsvFile(userList, fileName);
         MyCommonApp.transCSV2File(fileName);
         myFileUtils.readFile(userList2, fileName);
-        for (int i = 0; i < userList.size(z); i ++) {
+        for (int i = 0; i < userList.size(); i ++) {
             assertEquals(userList.get(i).getUsername(), userList2.get(i).getUsername());
             assertEquals(userList.get(i).getPassword(), userList2.get(i).getPassword());
         }
