@@ -9,7 +9,7 @@ public class MyCommonApp {
         MyFileUtils myFileUtils = new MyFileUtils();
         MyCSVUtils myCSVUtils = new MyCSVUtils();
         List<User> userList = new ArrayList<User>();
-        myFileUtils.readFile(userList, fileName);
+        userList = myFileUtils.readFile(userList, fileName);
         myCSVUtils.writeCsvFile(userList, fileName);
     }
 
@@ -17,7 +17,7 @@ public class MyCommonApp {
         MyFileUtils myFileUtils = new MyFileUtils();
         MyCSVUtils myCSVUtils = new MyCSVUtils();
         List<User> userList = new ArrayList<User>();
-        myCSVUtils.readCsvFile(userList, fileName);
+        userList = myCSVUtils.readCsvFile(userList, fileName);
         myFileUtils.writeFile(userList, fileName);
     }
 

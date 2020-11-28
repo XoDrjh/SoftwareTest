@@ -18,7 +18,7 @@ public class MyCSVUtils {
     //CSV文件头
     private static final String [] FILE_HEADER = { "username" , "password"};
 
-    public void writeCsvFile(List<User> userList, String fileName) {
+    public List<User> writeCsvFile(List<User> userList, String fileName) {
         FileWriter fileWriter = null ;
         CSVPrinter csvFilePrinter = null ;
         //创建 CSVFormat
@@ -29,7 +29,7 @@ public class MyCSVUtils {
             //初始化 CSVPrinter
             csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);
             //创建CSV文件头
-            csvFilePrinter.printRecord(FILE_HEADER);
+//            csvFilePrinter.printRecord(FILE_HEADER);
 
             // 遍历List写入CSV
             for (User user : userList) {
@@ -51,9 +51,10 @@ public class MyCSVUtils {
                 e.printStackTrace();
             }
         }
+        return userList;
     }
 
-    public void readCsvFile(List<User> userList, String fileName) {
+    public List<User> readCsvFile(List<User> userList, String fileName) {
         FileReader fileReader = null ;
         CSVParser csvFileParser = null ;
         //创建CSVFormat（header mapping）
@@ -83,6 +84,7 @@ public class MyCSVUtils {
                 e.printStackTrace();
             }
         }
+        return userList;
     }
 
 }

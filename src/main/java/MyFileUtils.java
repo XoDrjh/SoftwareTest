@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyFileUtils {
-    public void writeFile(List<User> userList, String fileName) throws IOException {
+    public List<User> writeFile(List<User> userList, String fileName) throws IOException {
         List<String> usernameList = new ArrayList<String>();
         List<String> passwordList = new ArrayList<String>();
         String usernameFile = "username" + fileName + ".txt";
@@ -20,9 +20,10 @@ public class MyFileUtils {
         FileUtils.writeLines(new File(usernameFile), usernameList, false);
         FileUtils.writeLines(new File(passwordFile), passwordList, false);
         System.out.println( "TXT文件创建成功~~~" );
+        return userList;
     }
 
-    public void readFile(List<User> userList, String fileName) throws IOException {
+    public List<User> readFile(List<User> userList, String fileName) throws IOException {
         List<String> usernameList;
         List<String> passwordList;
         String usernameFile = "username" + fileName + ".txt";
@@ -34,5 +35,6 @@ public class MyFileUtils {
         for (int i = 0; i < usernameList.size(); i ++) {
             userList.add(new User(usernameList.get(i), passwordList.get(i)));
         }
+        return userList;
     }
 }
